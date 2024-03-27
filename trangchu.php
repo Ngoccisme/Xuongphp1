@@ -43,7 +43,7 @@
     <ul class="menu">
         <li><a href="index.php?act=list">Danh Sách Sản Phẩm</a></li>
         <li><a href="index.php?act=listdm">Danh sách Danh Mục</a></li>
-        <li><a href="login.php">Đăng Xuất</a></li>
+        <li><a href="index.php?act=dangxuat">Đăng Xuất</a></li>
     </ul>
 </body>
 </html>

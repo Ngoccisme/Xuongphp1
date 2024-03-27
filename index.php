@@ -16,21 +16,15 @@
         switch($act){
             case "dangnhap":
                 if(isset($_POST['submit'])){
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    if($username != '' && $password != ''){ 
-                        $_SESSION['username'] = $username;
-                        header("Location: trangchu.php");
-                    } else {
-                        if($username == '' && $password == '') {
-                            $error = "Vui lòng nhập tên đăng nhập và mật khẩu!";
-                        } else {
-                            $error = "Tên đăng nhập hoặc mật khẩu không hợp lệ!";
-                        }
-                    }
+                    $_SESSION['username'] = $_POST['username'];
+                    $_SESSION['password'] = $_POST['password'];
                 }
+                include "trangchu.php";
                 break;
-
+                case "dangxuat":
+                    session_destroy();
+                    echo "<meta http-equiv='refresh' content='0;url=login.php'>";
+                    break;
             case "listdm":
                 $listcategory = listCategory();
                 include "view/category/list.php";
@@ -126,6 +120,8 @@
                 break;
           
         }
+    }else{
+        include "login.php";
     }
     // session_unset();
     // session_destroy();

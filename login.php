@@ -18,11 +18,20 @@
 <body>
     <div class="container" id="container">
         <div class="form-container">
-            <form action="index.php?act=dangnhap" method="POST" enctype="multipart/form-data">
+            <?php if(isset($_SESSION['username'])){
+                    echo "Xin Chào"." ".$_SESSION['username'];
+                ?>
+                
+                <!-- <h1>Trang cập nhật sản phẩm đòo Haileng</h1>
+    <marquee behavior="scroll" direction="left">Chào mừng bạn đến với web của chúng tôi</marquee>
+    <ul class="menu">
+        <li><a href="index.php?act=list">Danh Sách Sản Phẩm</a></li>
+        <li><a href="index.php?act=listdm">Danh sách Danh Mục</a></li>
+        <li><a href="index.php?act=dangxuat">Đăng Xuất</a></li>
+    </ul> -->
+                <?php } else {?>
+                    <form action="index.php?act=dangnhap" method="POST" enctype="multipart/form-data">
                 <h1>ĐĂNG NHẬP</h1>
-                <?php if(isset($error)){ ?>
-                    <p class="error-message"><?php echo $error; ?></p>
-                <?php } ?>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -37,6 +46,7 @@
                 <a href="#">Quên Mật Khẩu?</a>
                 <button type="submit" value="Đăng nhập" name="submit" class="btn btn-primary btn-large btn-block">Đăng nhập</button>
             </form>
+                    <?php }?>
         </div>
     </div>
 </body>
